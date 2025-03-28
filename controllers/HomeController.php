@@ -15,8 +15,11 @@ class HomeController
     public function chiTietSanPham(){
         $id = $_GET['id_san_pham'];
         $sanPham = $this->modelSanPham->getDetailSanPham($id);
-        // $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
-        // $listBinhLuan = $this-> modelSanPham->getBinhLuanFromSanPham($id);
+        $listSanPhamDanhMuc = $this->modelSanPham->listSanPhamDanhMuc($sanPham['danh_muc_id']); 
+        $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
+        $listBinhLuan = $this-> modelSanPham->getBinhLuanFromSanPham($id);
+        // var_dump($listSanPhamDanhMuc);
+        // die;
         if (count($sanPham)> 0 ) {
           require_once './views/detailSanPham.php';
         }else{
