@@ -24,7 +24,6 @@ require_once 'layout/menu.php';
             <!-- single slider item start -->
         </div>
     </section>
-    <!-- hero slider area end -->
     <!-- service policy area start -->
     <div class="service-policy section-padding">
         <div class="container">
