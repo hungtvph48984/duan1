@@ -59,4 +59,7 @@ function deleteSessionError(){
 function formatPrice($price){
 return number_format($price,0,',','.');
 }
-
+// format date
+function formatDate($date){
+    return date("d-m-Y", strtotime($date));
+}
