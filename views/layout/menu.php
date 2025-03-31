@@ -11,7 +11,7 @@
                     <!-- start logo area -->
                     <div class="col-lg-2">
                         <div class="logo">
-                            <a href="<?php BASE_URL ?>">
+                            <a href="/duan1/mvc-oop-basic/">
                                 <img src="assets/img/logo/logo2.jpeg" alt="Brand Logo">
                             </a>
                         </div>
