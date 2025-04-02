@@ -23,7 +23,6 @@ class AdminTaiKhoanController
     public function postAddQuanTri()
     {
         // hàm dùng để xử lý thêm dữ liệu
-
         // kiểm tra xem dữ liệu có phải đc submit lên không
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // lấy ra dữ liệu
@@ -40,8 +39,8 @@ class AdminTaiKhoanController
             $_SESSION['error'] = $errors;
             // không có lỗi thì tiến hành thêm danh mục
             if (empty($errors)) {
-                    // Đặt password mặc định - 123@123ab
-                    $password = password_hash('123@123ab', PASSWORD_BCRYPT);
+                    // Đặt password mặc định - 123456
+                    $password = password_hash('123456', PASSWORD_BCRYPT);
                     // var_dump($password);
                     // Khai báo chức vụ
                     $chuc_vu_id = 1;
@@ -72,7 +71,7 @@ class AdminTaiKhoanController
             // Xử lý thông tin đăng nhập
             $user = $this->modelTaiKhoan->checkLogin($email,$password);
 
-            if($user){
+            if($user == $email){
                 // Lưu thông tin vào session
                 $_SESSION['user_admin'] = $user;
                 header("Location: " . BASE_URL_ADMIN);
@@ -80,7 +79,7 @@ class AdminTaiKhoanController
             }else{
                 // Lưu lỗi vào session
                 $_SESSION['error'] = $user;
-                
+                // var_dump($_SESSION['error']);die
                 $_SESSION['flash'] = true;
 
                 header("Location: " . BASE_URL_ADMIN . '?act=login-admin');

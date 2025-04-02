@@ -16,25 +16,18 @@ require_once './models/TaiKhoan.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
-// var_dump($_GET['act']);
-// die();
-// if ($_GET['act']) {
-//     $act = $_GET['act'];
-// }else{
-//     $act = '/';
-// }
 
-// Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
 
 match ($act) {
-    '/' =>(new HomeController())->home(), //trường hợp đặc biệt
+    '/' =>(new HomeController())->home(), 
   
-    // BASE_URL/?act=tên đường dẫn
 
     'san-pham-tri-tiet' =>(new HomeController())->chiTietSanPham(),
     // Auth
     'login'             =>(new HomeController())->formLogin(),
     'check-login'       =>(new HomeController())->postLogin(),
+
+    
 
     default => function() {
         echo "404 - Không tìm thấy trang";

@@ -12,7 +12,7 @@ require_once 'views/layout/menu.php';?>
                             <nav aria-label="breadcrumb">
                                 <ul class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i></a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Đăng nhập</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Đăng ký</li>
                                 </ul>
                             </nav>
                         </div>
@@ -30,13 +30,11 @@ require_once 'views/layout/menu.php';?>
                         <!-- Login Content Start -->
                         <div class="col-lg-12">
                             <div class="login-reg-form-wrap">
-                                <h5 class="text-center">Đăng nhập</h5>
+                                <h5 class="text-center">Đăng ký</h5>
                                 
-                                <?php if(isset($_SESSION['error'])){ ?>
-                                    <p class="text-danger login-box-msg"><?= $_SESSION['error']?></p>
-                                <?php }else{ ?>
-                                    <p class="login-box-msg">Vui lòng đăng nhập</p>
-                                <?php } ?>
+                                
+                                    <p class="login-box-msg">Vui lòng đăng ký</p>
+                                
                                     
                                 <form action="<?= BASE_URL . '?act=check-login'?>" method="post">
                                     <div class="single-input-item">
@@ -52,7 +50,7 @@ require_once 'views/layout/menu.php';?>
                                         </div>
                                     </div>
                                     <div class="single-input-item">
-                                        <button class="btn btn-sqr">Đăng nhập</button>
+                                        <button class="btn btn-sqr">Đăng ký</button>
                                     </div>
                                 </form>
                             </div>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 class AdminTaiKhoan
 {
     public $conn;
@@ -13,11 +13,11 @@ class AdminTaiKhoan
 
 
             $stmt = $this->conn->prepare($sql);
-                
-            $stmt->execute([':chuc_vu_id' =>$chuc_vu_id]);
+
+            $stmt->execute([':chuc_vu_id' => $chuc_vu_id]);
             return $stmt->fetchAll();
         } catch (\Exception $e) {
-            echo 'lỗi' . $e->getMessage();
+            echo 'lỗi' .    $e->getMessage();
         }
     }
 
@@ -29,12 +29,12 @@ class AdminTaiKhoan
 
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([
-                    ':ho_ten' => $ho_ten,
-                    ':email' => $email,
-                    ':password' => $password,
-                    ':chuc_vu_id' => $chuc_vu_id,
+                ':ho_ten' => $ho_ten,
+                ':email' => $email,
+                ':password' => $password,
+                ':chuc_vu_id' => $chuc_vu_id,
 
-                ]);
+            ]);
             return true;
         } catch (\Exception $e) {
             echo 'lỗi' . $e->getMessage();
@@ -43,28 +43,28 @@ class AdminTaiKhoan
 
     public function checkLogin($email, $mat_khau)
     {
-        try{
+        try {
             $sql  = "SELECT * FROM tai_khoans WHERE email = :email";
             $stmt = $this->conn->prepare($sql);
-            $stmt->execute(['email'=>$email]);
+            $stmt->execute(['email' => $email]);
             $user = $stmt->fetch();
 
-            if($user && password_verify($mat_khau, $user['mat_khau'])){
-                if($user['chuc_vu_id'] == 1 ){
-                    if($user['trang_thai'] == 1){
-                        return $user; // trường hợp đăng nhập thành công
-                    }else{
+            if ($user && password_verify($mat_khau, $user['mat_khau'])) {
+                if ($user['chuc_vu_id'] == 1) {
+                    if ($user['trang_thai'] == 1) {
+                        return $user['email']; // trường hợp đăng nhập thành công
+                    } else {
                         return "Tài khoản bị cấm";
-                    }                   
-                }else{
+                    }
+                } else {
                     return "Tài khoản không có quyền đăng nhập";
                 }
-            }else{
-                return "Bạn đăng nhập sai thông tin mật khẩu hoặc tài khoản";
+            } else {
+                return "Bạn nhập sai thông tin mật khẩu hoặc tài khoản";
             }
-        }catch(\Exception $e ){
+        } catch (\Exception $e) {
             echo "Lỗi" . $e->getMessage();
-            return false;                                           
+            return false;
         }
     }
 }

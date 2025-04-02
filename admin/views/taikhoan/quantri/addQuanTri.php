@@ -15,7 +15,6 @@
             </div>
         </div><!-- /.container-fluid -->
     </section>
-
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -37,7 +36,6 @@
                                         <p class="text-danger"><?= $_SESSION['error']['ho_ten'] ?></p>
                                     <?php } ?>
                                 </div>
-
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="email" class="form-control" name="email" placeholder="nhập email">
@@ -45,11 +43,8 @@
                                     if (isset($_SESSION['error']['email'])) { ?>
                                         <p class="text-danger"><?= $_SESSION['error']['email'] ?></p>
                                     <?php } ?>
-                                </div>
-
-                                
+                                </div>         
                             </div>
-
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
