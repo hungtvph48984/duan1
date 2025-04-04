@@ -10,75 +10,90 @@
 
                     <!-- start logo area -->
                     <div class="col-lg-2">
-                        <div class="logo">
-                            <a href="/duan1/mvc-oop-basic/">
+                        <a href="<?= BASE_URL ?>">
+                            <div class="logo">
                                 <img src="assets/img/logo/logo2.jpeg" alt="Brand Logo">
-                            </a>
-                        </div>
+                        </a>
                     </div>
-                    <!-- start logo area -->
-
-                    <!-- main menu area start -->
-                    <div class="col-lg-6 position-static">
-                        <div class="main-menu-area">
-                            <div class="main-menu">
-                                <!-- main menu navbar start -->
-                                <nav class="desktop-menu">
-                                    <ul>
-                                        <li><a href="index.html">Trang chủ</a></li>
-                                        <li><a href="#">Sản phẩm <i class="fa fa-angle-down"></i></a>
-                                            <ul class="dropdown">
-                                                <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Giới thiệu</a></li>
-                                        <li><a href="#">Liên Hệ</a></li>
-                                    </ul>
-                                </nav>
-                                <!-- main menu navbar end -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- main menu area end -->
-
-                    <!-- mini cart area start -->
-                    <div class="col-lg-4">
-                        <div class="header-right d-flex align-items-center justify-content-xl-between justify-content-lg-end">
-                            <div class="header-search-container">
-                                <button class="search-trigger d-xl-none d-lg-block"><i class="pe-7s-search"></i></button>
-                                <form class="header-search-box d-lg-none d-xl-block">
-                                    <input type="text" placeholder="nhập tên sản phẩm" class="header-search-field">
-                                    <button class="header-search-btn"><i class="pe-7s-search"></i></button>
-                                </form>
-                            </div>
-                            <div class="header-configure-area">
-                                <ul class="nav justify-content-end">
-                                    <li class="user-hover">
-                                        <a href="#">
-                                            <i class="pe-7s-user"></i>
-                                        </a>
-                                        <ul class="dropdown-list">
-                                            <li><a href="login-register.html">Đăng nhập</a></li>
-                                            <li><a href="login-register.html">Đăng ký</a></li>
-                                            <li><a href="my-account.html">Tài khoản </a></li>
-                                        </ul>
-                                    </li>                               
-                                    <li>
-                                        <a href="#" class="minicart-btn">
-                                            <i class="pe-7s-shopbag"></i>
-                                            <div class="notification">2</div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- mini cart area end -->
-
                 </div>
+                <!-- start logo area -->
+
+                <!-- main menu area start -->
+                <div class="col-lg-6 position-static">
+                    <div class="main-menu-area">
+                        <div class="main-menu">
+                            <!-- main menu navbar start -->
+                            <nav class="desktop-menu">
+                                <ul>
+                                    <li><a href="<?= BASE_URL ?>">Trang chủ</a></li>
+                                    <li><a href="#">Sản phẩm <i class="fa fa-angle-down"></i></a>
+                                        <ul class="dropdown">
+                                            <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Giới thiệu</a></li>
+                                    <li><a href="#">Liên Hệ</a></li>
+                                </ul>
+                            </nav>
+                            <!-- main menu navbar end -->
+                        </div>
+                    </div>
+                </div>
+                <!-- main menu area end -->
+
+                <!-- mini cart area start -->
+                <div class="col-lg-4">
+                    <div class="header-right d-flex align-items-center justify-content-xl-between justify-content-lg-end">
+                        <div class="header-search-container">
+                            <button class="search-trigger d-xl-none d-lg-block"><i class="pe-7s-search"></i></button>
+                            <form class="header-search-box d-lg-none d-xl-block">
+                                <input type="text" placeholder="nhập tên sản phẩm" class="header-search-field">
+                                <button class="header-search-btn"><i class="pe-7s-search"></i></button>
+                            </form>
+                        </div>
+                        <div class="header-configure-area">
+                            <ul class="nav justify-content-end">
+                                <label for="">
+                                    <?php
+                                    if (isset($_SESSION['user_client'])) {
+                                        echo $_SESSION['user_client'];
+                                        // var_dump($_SESSION['user_client']);
+                                        // die;
+                                    }
+                                    ?>
+                                </label>
+                                <li class="user-hover">
+                                    <a href="#">
+                                        <i class="pe-7s-user"></i>
+                                    </a>
+                                    <ul class="dropdown-list">
+                                        <?php
+                                        if (!isset($_SESSION['user_client'])) { ?>
+
+                                            <li><a href="<?= BASE_URL . '/?act=login' ?>">Đăng nhập</a></li>
+                                        <?php } else {
+                                        ?>
+
+                                            <li><a href="my-account.html">Tài khoản </a></li>
+                                        <?php } ?>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="minicart-btn">
+                                        <i class="pe-7s-shopbag"></i>
+                                        <div class="notification">2</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- mini cart area end -->
+
             </div>
         </div>
-        <!-- header middle area end -->
+    </div>
+    <!-- header middle area end -->
     </div>
     <!-- main header start -->
 </header>
