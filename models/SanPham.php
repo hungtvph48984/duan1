@@ -82,4 +82,5 @@ class SanPham
             echo "lỗi" . $e->getMessage();
         }
     }
+    
 }

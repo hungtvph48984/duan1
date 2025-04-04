@@ -8,8 +8,9 @@ require_once './commons/function.php'; // Hàm hỗ trợ
 require_once './controllers/HomeController.php';
 
 // Require toàn bộ file Models
-require_once './models/Student.php';
 require_once './models/SanPham.php';
+require_once './models/TaiKhoan.php';
+require_once './models/GioHang.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -29,6 +30,16 @@ match ($act) {
   
     // BASE_URL/?act=tên đường dẫn
     'san-pham-tri-tiet' =>(new HomeController())->chiTietSanPham(),
+    'them-gio-hang' =>(new HomeController())->addGioHang(),
+    'gio-hang' =>(new HomeController())->gioHang(),
+    // 'thanh-toan' =>(new HomeController())->thanhToan(),
+    
+    
+    
+    // form login trang chu
+    'login'             =>(new HomeController())->formLogin(),
+    'check-login'       =>(new HomeController())->postLogin(),
+
 
     default => function() {
         echo "404 - Không tìm thấy trang";

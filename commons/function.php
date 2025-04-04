@@ -63,3 +63,10 @@ return number_format($price,0,',','.');
 function formatDate($date){
     return date("d-m-Y", strtotime($date));
 }
+
+function checkLoginAdmin(){
+    if(!isset($_SESSION['user_admin'])){
+        header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
+        exit();
+    }
+}
