@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 // Require file Common
 require_once '../commons/env.php'; // Khai báo biến môi trường
 require_once '../commons/function.php'; // Hàm hỗ trợ
@@ -56,6 +56,8 @@ match ($act) {
          // router  admin
     'login-admin'         => (new AdminTaiKhoanController())->formLogin(),
     'check-login-admin'   => (new AdminTaiKhoanController())->login(),
+    'logout-admin'        => (new AdminTaiKhoanController())->logout(),
+
     default => function() {
         echo "404 - Không tìm thấy trang";
     }
