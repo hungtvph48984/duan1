@@ -120,30 +120,30 @@
         <a href="./assets/index2.html" class="h1"><b>Đăng nhập Admin</b></a>
       </div>
       <div class="card-body">
-
-        <?php if(isset($_SESSION['error'])){ 
+        <?php
+        if (isset($_SESSION['error'])) {
 
           if (is_array($_SESSION['error'])) {
-        foreach ($_SESSION['error'] as $err) {
-            echo "<p class='text-danger login-box-msg'>{$err}</p>";
-        }
-    } else {
-        echo "<p class='text-danger login-box-msg'>{$_SESSION['error']}</p>";
-    }
-?>
-        <p class="login-box-msg">Vui lòng đăng nhập </p>
-        
+            foreach ($_SESSION['error'] as $err) {
+              echo "<p class='text-danger login-box-msg'>{$err}</p>";
+            }
+          } else {
+            echo "<p class='text-danger login-box-msg'>{$_SESSION['error']}</p>";
+          }
+        ?>
+          <p class="login-box-msg">Vui lòng đăng nhập </p>
+
         <?php } ?>
 
         <form action=" <?= BASE_URL_ADMIN . '?act=check-login-admin' ?>" method="post">
-          
+
           <div class="input-group mb-3">
             <input type="email" class="form-control" placeholder="Email" name="email">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
               </div>
-            </div>  
+            </div>
           </div>
 
           <div class="input-group mb-3">
