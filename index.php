@@ -31,6 +31,7 @@ match ($act) {
 
     // BASE_URL/?act=tên đường dẫn
     'san-pham-tri-tiet' => (new HomeController())->chiTietSanPham(),
+    
     'them-gio-hang' => (new HomeController())->addGioHang(),
     'gio-hang' => (new HomeController())->gioHang(),
     'thanh-toan' => (new HomeController())->thanhToan(),
