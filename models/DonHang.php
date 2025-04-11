@@ -56,4 +56,22 @@ class DonHang
         }
 
     }
+
+    public function getDonHangFromUser($taiKhoanId)
+    {
+        // thêm chi tiết đơn hàng vào csdl
+        try {
+            $sql  = "SELECT * FROM don_hangs WHERE tai_khoan_id = :tai_khoan_id";
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([
+                ':tai_khoan_id' => $taiKhoanId,
+                
+            ]);
+            return $stmt->fetchAll();
+        } catch (\Exception $e) {
+            echo "Lỗi" . $e->getMessage();
+        }
+
+    }
 }

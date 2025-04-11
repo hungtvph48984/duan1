@@ -222,7 +222,20 @@ class HomeController
     }
   }
   public function lichSuMuaHang(){
+    if(isset($_SESSION['user_client'])) {
+      $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
+      // lấy ra danh sachs trạng thái đơn hàng
 
+      // lấy ra danh sachs trạng thái thanh toán
+
+      //lấy ra danh sách tất cả trong tài khoản
+      $donHangs= $this->modelDonHang->getDonHangFromUser($user['id']);
+      // var_dump($donHangs);die;
+      require_once './views/lichSuMuaHang.php';
+      
+    } else {
+      header("Location: " . BASE_URL . '?act=login');
+    }
   }
 
   public function chiTietMuaHang(){
