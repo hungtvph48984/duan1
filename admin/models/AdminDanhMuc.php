@@ -76,4 +76,15 @@ class AdminDanhMuc
             echo 'lỗi' . $e->getMessage();
         }
     }
+
+
+    //xóa danh mục khi  không có sản phẩm
+    public function getProductCountByDanhMucId($danh_muc_id)
+{
+    $sql = "SELECT COUNT(*) as total FROM san_phams WHERE danh_muc_id = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->execute([$danh_muc_id]);
+    $result = $stmt->fetch();
+    return $result['total'];
+}
 }

@@ -44,5 +44,4 @@ class TaiKhoan
             echo "Lỗi" . $e->getMessage();                                         
         }
     }
-    
 }
