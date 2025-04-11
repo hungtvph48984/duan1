@@ -46,6 +46,17 @@
                         <h4 class="mt-3">Trạng thái: <small><?= $sanPham['trang_thai'] == 1 ? 'Còn hàng' : 'Dừng bán' ?></small></h4>
                         <h4 class="mt-3">Mô tả: <small><?= $sanPham['mo_ta'] ?></small></h4>
 
+                        <!-- Hiển thị biến thể -->
+                        <h4 class="mt-3">Biến thể:</h4>
+                        <?php if (!empty($sanPham['variants'])) : ?>
+                            <ul>
+                                <?php foreach ($sanPham['variants'] as $variant) : ?>
+                                    <li>Size: <?= $variant['size'] ?>, Màu: <?= $variant['color'] ?>, Số lượng: <?= $variant['so_luong'] ?> </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php else : ?>
+                            <p>Sản phẩm không có biến thể</p>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <!-- <div class="row mt-4">
@@ -66,7 +77,7 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Bình luận sản phẩm</button>
                     </li>
-                   
+
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">

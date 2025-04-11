@@ -122,6 +122,7 @@
     <script src="assets/js/plugins/google-map.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
+    
 </body>
 
 
