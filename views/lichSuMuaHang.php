@@ -44,17 +44,24 @@ require_once 'layout/menu.php';
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($donHangs as $donHang):?>
+                                    <?php foreach ($donHangs as $donHang): ?>
                                         <tr>
                                             <td><?= $donHang['ma_don_hang'] ?></td>
                                             <td><?= $donHang['ngay_dat'] ?></td>
                                             <td><?= formatPrice($donHang['tong_tien']) ?></td>
-                                            <td><?= $donHang['phuong_thuc_thanh_toan_id'] ?></td>
-                                            <td><?= $donHang['trang_thai_id'] ?></td>
-                                            
+                                            <td><?= $phuongThucThanhToan[$donHang['phuong_thuc_thanh_toan_id']] ?></td>
+                                            <td><a href=""><?= $trangThaiDonHang[$donHang['trang_thai_id']] ?></a></td>
+                                            <td>
+                                                <a class="btn btn-sqr"  href="<?= BASE_URL ?>?act=chi-tiet-mua-hang&id=<?=$donHang['id'] ?>">chi tiết đơn hàng</a>
+                                                <?php
+                                                if ($donHang['trang_thai_id'] == 1): ?>
+                                                    <a class="btn btn-sqr" href="<?= BASE_URL ?>?act=huy-don-hang&id=<?=$donHang['id'] ?>" 
+                                                    onclick="return confirm('Bạn có chắc chắn muốn hủy đơn hàng này không?')">Hủy</a>
+                                                <?php endif?>
+                                            </td>
                                         </tr>
 
-                                    <?php endforeach?>
+                                    <?php endforeach ?>
                                 </tbody>
                             </table>
                         </div>

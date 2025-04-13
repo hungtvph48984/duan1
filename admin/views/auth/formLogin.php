@@ -117,15 +117,15 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="./assets/index2.html" class="h1">WEBSITE BÁN ĐỒNG HỒ</a>
+                <a href="./assets/index2.html" class="h1">Quản trị website</a>
             </div>
             <div class="card-body">
-                <?php if(isset($_SESSION['error'])){ ?>
+                <?php if (isset($_SESSION['error'])) { ?>
                     <p class="text-danger login-box-msg"><?= $_SESSION['error'] ?></p>
-                <?php }else{ ?>
+                <?php } else { ?>
                     <p class="login-box-msg">Vui lòng đăng nhập</p>
                 <?php } ?>
-                
+
 
                 <form action="<?= BASE_URL_ADMIN . '?act=check-login-admin' ?>" method="post">
                     <div class="input-group mb-3">
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        
+
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
                         </div>
@@ -153,13 +153,13 @@
                     </div>
                 </form>
 
-                
+
                 <!-- /.social-auth-links -->
 
                 <p class="mb-1">
                     <a href="#">Quên mật khẩu</a>
                 </p>
-                
+
             </div>
             <!-- /.card-body -->
         </div>
