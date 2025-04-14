@@ -150,4 +150,30 @@ class AdminDonHang
     //         echo 'lỗi' . $e->getMessage();
     //     }
     // }
+    public function getTongSoDonHang()
+{
+    try {
+        $sql = "SELECT COUNT(*) AS tong_don_hang FROM don_hangs";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC)['tong_don_hang'];
+    } catch (\Exception $e) {
+        error_log("Lỗi: " . $e->getMessage());
+        return 0;
+    }
+}
+
+public function getTongTien()
+{
+    try {
+        $sql = "SELECT SUM(tong_tien) AS tong_tien FROM don_hangs";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC)['tong_tien'];
+    } catch (\Exception $e) {
+        error_log("Lỗi: " . $e->getMessage());
+        return 0;
+    }
+}
+
 }

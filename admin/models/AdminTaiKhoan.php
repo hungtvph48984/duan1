@@ -181,5 +181,18 @@ class AdminTaiKhoan
             echo 'lỗi' . $e->getMessage();
         }
     }
+
+    public function getTongSoTaiKhoan()
+{
+    try {
+        $sql = "SELECT COUNT(*) AS tong_tai_khoan FROM tai_khoans";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC)['tong_tai_khoan'];
+    } catch (\Exception $e) {
+        error_log("Lỗi: " . $e->getMessage());
+        return 0;
+    }
+}
     
 }
