@@ -45,6 +45,9 @@ match ($act) {
     // form login trang chu
     'login'             => (new HomeController())->formLogin(),
     'check-login'       => (new HomeController())->postLogin(),
+    'dangky'            =>(new HomeController())->formDangKy(),
+    'check-dangky'      =>(new HomeController())->postDangKy(),
+
 
 
     default => function () {
