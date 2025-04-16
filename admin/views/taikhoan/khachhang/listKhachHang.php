@@ -9,7 +9,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>QUẢN LÝ TÀI KHOẢN QUẢN TRỊ VIÊN</h1>
+          <h1>QUẢN LÝ TÀI KHOẢN KHÁCH HÀNG</h1>
         </div>
 
       </div>
@@ -23,9 +23,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-          <a href="<?=BASE_URL_ADMIN .'?act=form-them-quan-tri'?>">
-            <button class="btn btn-success">Thêm Tài Khoản</button>
-          </a>
+         
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -34,40 +32,46 @@
                   <tr>
                     <th>STT</th>
                     <th>Họ tên</th>
+                    <th>Ảnh đại diện</th>
                     <th>Email</th>
                     <th>Số điện thoại</th>
+                    <th>Ngày sinh</th>
+                    <th>Giới tính</th>
+                    <th>Địa chỉ</th>
                     <th>Trạng thái</th>
+                    <th>Thao tác</th>
                   </tr>
-                </thead>  
+                </thead>
                 <tbody>
-                  <?php foreach ($listQuanTri as $key => $quanTri): ?>
+                  <?php foreach ($listKhachHang as $key => $khachHang): ?>
                     <tr>
                       <td><?= $key + 1 ?></td>
-                      <td><?= $quanTri['ho_ten'] ?></td>
-                      <td><?= $quanTri['email'] ?></td>
-                      <td><?= $quanTri['so_dien_thoai'] ?></td>
-                      <td><?= $quanTri['trang_thai'] == 1 ? 'Active' : 'Inactive    ' ?></td>
+                      <td><?= $khachHang['ho_ten'] ?></td>
                       <td>
-                        <a href="<?=BASE_URL_ADMIN .'?act=form-sua-quan-tri&id_quan_tri='.$quanTri['id']?>">
-                            <button class="btn btn-warning">Sửa</button>
-                        </a>  
-                        
-                        <a href="<?=BASE_URL_ADMIN .'?act=reset-password&id_quan_tri='.$quanTri['id']?>"
+                      <img src="<?= BASE_URL . $khachHang['anh_dai_dien'] ?>" style="width: 100px" alt=""
+                      onerror="this.onerror = null; this.src='https://cdn-icons-png.flaticon.com/512/9131/9131478.png'">
+                    </td> 
+                      <td><?= $khachHang['email'] ?></td>
+                      <td><?= $khachHang['so_dien_thoai'] ?></td>
+                      <td><?= $khachHang['ngay_sinh'] ?></td>
+                      <td><?= $khachHang['gioi_tinh'] == 1 ? 'Nam':'Nữ' ?></td>
+                      <td><?= $khachHang['dia_chi'] ?></td>
+                      <td><?= $khachHang['trang_thai'] == 1 ? 'Active':'Inactive' ?></td>
+                      <td>
+                        <div class="btn-group">
+                        <a href="<?=BASE_URL_ADMIN .'?act=chi-tiet&id_khach_hang='.$khachHang['id']?>">
+                        <button class="btn btn-primary">Chi tiết</button></a>
+                        <a href="<?=BASE_URL_ADMIN .'?act=form-sua-khach-hang&id_khach_hang='.$khachHang['id']?>">
+                          <button class="btn btn-warning">Sửa</button></a>
+                        <a href="<?=BASE_URL_ADMIN .'?act=reset-password&id_quan_tri='.$khachHang['id']?>"
                          onclick="return confirm('Bạn có muốn reset password của tài khoản này không')">
                          <button class="btn btn-danger">Reset</button></a> 
-                      </td>
+                        </div>
+                        
+                      </td> 
                     </tr>
-                  <?php endforeach ?>   
-                </tbody>
-                <tfoot>
-                    <tr>
-                    <th>STT</th>
-                    <th>Họ tên</th>
-                    <th>Email</th>
-                    <th>Số điện thoại</th>
-                    <th>Trạng thái</th>
-                    </tr>
-                </tfoot>
+                  <?php endforeach ?>
+
               </table>
             </div>
             <!-- /.card-body -->

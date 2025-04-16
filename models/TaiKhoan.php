@@ -44,4 +44,32 @@ class TaiKhoan
             echo "Lỗi" . $e->getMessage();                                         
         }
     }
+    public function checkDangKy($ho_ten,$email,$mat_khau)  {
+        try{
+            $sql = "SELECT * FROM tai_khoans WHERE email = :email";
+            $stmt = $this->conn->prepare($sql);
+            $stmt ->execute(['email' => $email]);
+
+            if($stmt->fetch()){
+                return "Email đã được sử dụng";
+            }
+
+            // mã hoá mật khẩu
+            $hashedPassword = password_hash($mat_khau,PASSWORD_DEFAULT);
+
+            // thêm tài khoản mới
+            $sql = "INSERT INTO tai_khoans (ho_ten, email, mat_khau, chuc_vu_id, trang_thai) 
+                    VALUES (:ho_ten, :email, :mat_khau, 2,1)";
+                    
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                'ho_ten'    =>$ho_ten,
+                'email'     =>$email,
+                'mat_khau'  =>$hashedPassword
+            ]);
+            return true;
+        }catch(\Exception $e){
+            return "đăng ký thất bại: " .$e->getMessage();
+        }
+    }
 }
