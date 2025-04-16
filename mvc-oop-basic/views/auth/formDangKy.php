@@ -26,6 +26,8 @@ require_once 'views/layout/menu.php'; ?>
     <div class="login-register-wrapper section-padding">
         <div class="container" style="max-width:40vw"> 
             
+
+        
             <div class="member-area-from-wrap">
                 <div class="row">
                     <!-- Register Content Start -->
