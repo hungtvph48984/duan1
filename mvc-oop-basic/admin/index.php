@@ -1,3 +1,7 @@
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/admin/assets/dist/css/admin1.css">
+</head>
 <?php 
 session_start();
 // Require file Common
