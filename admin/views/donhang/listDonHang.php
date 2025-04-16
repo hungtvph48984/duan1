@@ -48,13 +48,16 @@
                                             <td><?= $donHang['sdt_nguoi_nhan'] ?></td>
                                             <td><?= $donHang['ngay_dat'] ?></td>
                                             <td><?= $donHang['tong_tien'] ?></td>
-                                            <td><?= $donHang['ten_trang_thai'] ?></td>
-                                           
+                                            <td> <span class="badge badge-info" style="padding: 8px 12px; font-size: 14px;">
+                                                    <?= $donHang['ten_trang_thai'] ?>
+                                                </span></td>
                                             <td>
                                                 <div class="btn-group">
                                                     <a href="<?= '?act=chi-tiet-don-hang&id_don_hang=' . $donHang['id'] ?>"><button class="btn btn-primary">Chi tiết</button></a>
+
                                                     <a href="<?= '?act=form-sua-don-hang&id_don_hang=' . $donHang['id'] ?>"><button class="btn btn-warning">Sửa</button></a>
-                                                  
+
+
                                                 </div>
 
                                             </td>

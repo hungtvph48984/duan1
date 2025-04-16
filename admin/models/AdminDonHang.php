@@ -125,11 +125,5 @@ class AdminDonHang
             ';
 
 
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute([':id'=>$id]);
-            return $stmt->fetchAll();
-        } catch (\Exception $e) {
-            echo 'lỗi' . $e->getMessage();
-        }
-    }
+
 }

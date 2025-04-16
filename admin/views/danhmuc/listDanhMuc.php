@@ -23,10 +23,16 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-          <a href="<?=BASE_URL_ADMIN .'?act=form-them-danh-muc'?>">
-            <button class="btn btn-success"> thêm danh mục</button>
-          </a>
+              <a href="<?= BASE_URL_ADMIN . '?act=form-them-danh-muc' ?>">
+                <button class="btn btn-success"> thêm danh mục</button>
+              </a>
             </div>
+            <?php if (isset($_GET['error']) && $_GET['error'] == 'not_empty'): ?>
+              <div class="alert alert-danger mt-2" role="alert">
+                Không thể xóa vì danh mục đang có sản phẩm!
+              </div>
+            <?php endif; ?>
+
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
@@ -45,13 +51,14 @@
                       <td><?= $danhMuc['ten_danh_muc'] ?></td>
                       <td><?= $danhMuc['mo_ta'] ?></td>
                       <td>
-                        <a href="<?=BASE_URL_ADMIN .'?act=form-sua-danh-muc&id_danh_muc='.$danhMuc['id']?>"><button class="btn btn-warning">Sửa</button></a>
-                        <a href="<?=BASE_URL_ADMIN .'?act=xoa-danh-muc&id_danh_muc='.$danhMuc['id']?>" onclick="return confirm('bạn có đồng ý xóa không')"><button class="btn btn-danger">Xóa</button></a>
+                        <a href="<?= BASE_URL_ADMIN . '?act=form-sua-danh-muc&id_danh_muc=' . $danhMuc['id'] ?>"><button class="btn btn-warning">Sửa</button></a>
+                        <a href="<?= BASE_URL_ADMIN . '?act=xoa-danh-muc&id_danh_muc=' . $danhMuc['id'] ?>" onclick="return confirm('bạn có đồng ý xóa không')"><button class="btn btn-danger">Xóa</button></a>
                       </td>
                     </tr>
                   <?php endforeach ?>
 
               </table>
+
             </div>
             <!-- /.card-body -->
           </div>
