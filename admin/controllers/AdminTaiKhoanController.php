@@ -1,12 +1,11 @@
-<?php 
-class AdminTaiKhoanController
-{
-    public $modelTaiKhoan;
+
 
     
     public function __construct()
     {
-        $this->modelTaiKhoan = new AdminTaiKhoan();
+        $this->modelTaiKhoan = new AdminTaiKhoan;
+        $this->modelDonHang = new AdminDonHang;
+        $this->modelSanPham = new AdminSanPham;
     }
 
     public function danhSachQuanTri(){
@@ -55,6 +54,7 @@ class AdminTaiKhoanController
             }
         }
     }
+
 
     public function formLogin(){
         require_once './views/auth/formLogin.php';

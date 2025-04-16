@@ -50,7 +50,7 @@ match ($act) {
 
 
 
-    default => function () {
+
         echo "404 - Không tìm thấy trang";
     }
 };

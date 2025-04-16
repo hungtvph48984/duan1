@@ -214,8 +214,7 @@ class HomeController
         header("Location: " . BASE_URL . '?act=lich-su-mua-hang');
         exit();
       } else {
-        var_dump('lỗi đặt hàng');
-        die;
+
       }
     }
   }

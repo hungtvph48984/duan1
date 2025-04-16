@@ -59,13 +59,7 @@
                       <td><?= $khachHang['trang_thai'] == 1 ? 'Active':'Inactive' ?></td>
                       <td>
                         <div class="btn-group">
-                        <a href="<?=BASE_URL_ADMIN .'?act=chi-tiet&id_khach_hang='.$khachHang['id']?>">
-                        <button class="btn btn-primary">Chi tiết</button></a>
-                        <a href="<?=BASE_URL_ADMIN .'?act=form-sua-khach-hang&id_khach_hang='.$khachHang['id']?>">
-                          <button class="btn btn-warning">Sửa</button></a>
-                        <a href="<?=BASE_URL_ADMIN .'?act=reset-password&id_quan_tri='.$khachHang['id']?>"
-                         onclick="return confirm('Bạn có muốn reset password của tài khoản này không')">
-                         <button class="btn btn-danger">Reset</button></a> 
+
                         </div>
                         
                       </td> 

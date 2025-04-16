@@ -171,19 +171,57 @@ class AdminSanPham
         }
     }
 
-    public function getBinhLuanFromKhachHang($id){
+    public function getBinhLuanFromKhachHang($id)
+    {
         try {
             $sql = 'SELECT binh_luans.*, san_phams.ten_san_pham
-                FROM binh_luans
-                INNER JOIN san_phams ON binh_luans.san_pham_id = san_phams.id
-                WHERE binh_luans.tai_khoan_id = :id
+            FROM binh_luans
+            INNER JOIN san_phams
+            ON binh_luans.san_pham_id = san_phams.id
+            WHERE binh_luans.tai_khoan_id = :id
             ';
+
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':id'=>$id]);
+            return $stmt->fetchAll();
+        } catch (\Exception $e) {
+            echo 'lỗi' . $e->getMessage();
+        }
+    }
+    
+
+    public function getDetailBinhLuan($id)
+    {
+        try {
+            $sql = 'SELECT binh_luans.*, WHERE id = :id';
+          
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':id' => $id,]);
+
+            return $stmt->fetch();
+        } catch (\Exception $e) {
+            echo 'lỗi' . $e->getMessage();
+        }
+    }
+   
+    public function updateTrangThaiBinhLuan($id, $trang_thai){
+        try {
+            $sql = 'UPDATE binh_luans
+                    SET
+                        trang_thai = :trang_thai
+                    WHERE id = :id';
 
             $stmt = $this->conn->prepare($sql);
 
-            $stmt->execute([':id' => $id]);
+            $stmt->execute([
+                ':trang_thai' => $trang_thai,
+                ':id' => $id,
+            ]);
 
-            return  $stmt->fetchAll();
+            // Lấy id sản phẩm vừa thêm
+            return  true;
         } catch (Exception $e) {
             echo "Lỗi: " . $e->getMessage();
         }
