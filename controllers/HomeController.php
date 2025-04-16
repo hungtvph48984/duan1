@@ -102,8 +102,10 @@ class HomeController
         // var_dump('thêm giỏ hàng thành công');
         header("Location: " . BASE_URL . '?act=gio-hang');
       } else {
-        var_dump('lỗi chưa đăng nhập');
-        die;
+        header("Location: " . BASE_URL . '?act=login');
+
+        // var_dump('lỗi chưa đăng nhập');
+        // die;
       }
     }
   }
@@ -125,8 +127,8 @@ class HomeController
         require_once './views/gioHang.php';
         exit();
       } else {
-        var_dump('lỗi chưa đăng nhập');
-        die;
+        header("Location: " . BASE_URL . '?act=login');
+
       }
     }
 }

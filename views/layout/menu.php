@@ -67,21 +67,20 @@
                                         <i class="pe-7s-user"></i>
                                     </a>
                                     <ul class="dropdown-list">
-                                        <?php
-                                        if (!isset($_SESSION['user_client'])) { ?>
-
+                                        <?php if (!isset($_SESSION['user_client'])): ?>
                                             <li><a href="<?= BASE_URL . '/?act=login' ?>">Đăng nhập</a></li>
-                                        <?php } else {
-                                        ?>
-
-                                            <li><a href="my-account.html">Tài khoản </a></li>
-                                        <?php } ?>
+                                            <li><a href="<?= BASE_URL . '?act=dangky' ?>">Đăng ký</a></li>
+                                        <?php else: ?>
+                                            <li><a href="my-account.html">Tài khoản</a></li>
+                                            <li><a href="<?= BASE_URL . '?act=lich-su-mua-hang' ?>">Đơn hàng</a></li>
+                                        <?php endif; ?>
                                     </ul>
+
                                 </li>
                                 <li>
-                                    <a href="#" class="minicart-btn">
+                                    <a href="<?= BASE_URL . '?act=gio-hang' ?>" class="minicart-btn">
                                         <i class="pe-7s-shopbag"></i>
-                                        <div class="notification">2</div>
+
                                     </a>
                                 </li>
                             </ul>

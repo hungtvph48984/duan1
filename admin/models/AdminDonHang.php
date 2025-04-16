@@ -80,26 +80,6 @@ class AdminDonHang
         }
     }
 
-   
-
-
-    // public function insertAlbumAnhSanPham($san_pham_id, $link_hinh_anh) {
-    //     try {
-    //         $sql = 'INSERT INTO hinh_anh_san_phams (san_pham_id, link_hinh_anh) 
-    //         VALUES (:san_pham_id, :link_hinh_anh)';
-    //         $stmt = $this->conn->prepare($sql);
-    //         $stmt->execute([
-    //            'san_pham_id' => $san_pham_id,
-    //            'link_hinh_anh' => $link_hinh_anh
-
-    //         ]);
-    //         // Lấy id sản phẩm vừa thêm
-    //         return true;
-    //     } catch (\Exception $e) {
-    //         echo 'lỗi' . $e->getMessage();
-    //     }
-    // }
-
 
     public function updateDonHang($id, $ten_nguoi_nhan, $sdt_nguoi_nhan, $email_nguoi_nhan, $dia_chi_nguoi_nhan, $ghi_chu, $trang_thai_id) {
         try {
@@ -134,20 +114,22 @@ class AdminDonHang
         }
     }
 
+    public function getDonHangFromKhachHang($id)
+    {
+        try {
+            $sql = 'SELECT don_hangs.*, trang_thai_don_hangs.ten_trang_thai
+            FROM don_hangs
+            INNER JOIN trang_thai_don_hangs
+            ON don_hangs.trang_thai_id = trang_thai_don_hangs.id
+            WHERE don_hangs.tai_khoan_id = :id
+            ';
 
 
-
-    // public function destroySanPham($id)
-    // {
-    //     try {
-    //         $sql = 'DELETE FROM san_phams  WHERE id=:id';
-    //         $stmt = $this->conn->prepare($sql);
-    //         $stmt->execute([
-    //             ':id' => $id
-    //         ]);
-    //         return true;
-    //     } catch (\Exception $e) {
-    //         echo 'lỗi' . $e->getMessage();
-    //     }
-    // }
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':id'=>$id]);
+            return $stmt->fetchAll();
+        } catch (\Exception $e) {
+            echo 'lỗi' . $e->getMessage();
+        }
+    }
 }

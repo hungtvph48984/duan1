@@ -41,6 +41,7 @@ match ($act) {
     'check-login'       =>(new HomeController())->postLogin(),
 
 
+
     default => function() {
         echo "404 - Không tìm thấy trang";
     }

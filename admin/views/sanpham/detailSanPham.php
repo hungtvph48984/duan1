@@ -28,11 +28,7 @@
                         <div class="col-12">
                             <img style="width:400px; height:400px" src="<?= '.' . $sanPham['hinh_anh'] ?> " class="product-image" alt="Product Image">
                         </div>
-                        <div class="col-12 product-image-thumbs">
-                            <?php foreach ($listAnhSanPham as $key => $anhSP) : ?>
-                                <div class="product-image-thumb <?= $anhSP[$key] == 0 ? 'active' : '' ?>  "><img src="<?= '.' . $anhSP['hinh_anh'] ?>" alt="Product Image"></div>
-                            <?php endforeach ?>
-                        </div>
+                        
                     </div>
                     <div class="col-12 col-sm-6">
                         <h3 class="my-3">Tên sản phẩm: <?= $sanPham['ten_san_pham'] ?></h3>

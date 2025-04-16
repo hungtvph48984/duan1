@@ -101,35 +101,43 @@ require_once 'layout/menu.php';
                                     <div class="tab-content reviews-tab">
                                         <div class="tab-pane fade show active" id="tab_one">
 
-                                            <div class="tab-pane fade show active" id="tab_three">
+                                        <div class="tab-pane fade show active" id="tab_three">
 
-                                                <?php foreach ($listBinhLuan as $binhLuan): ?>
-                                                    <div class="total-reviews">
-                                                        <div class="rev-avatar">
-                                                            <img src="<?= $binhLuan['anh_dai_dien'] ?>" alt="">
-                                                        </div>
-                                                        <div class="review-box">
-                                                            <div class="post-author">
-                                                                <p><span>Khách hàng</span> <?= $binhLuan['ngay_dang'] ?></p>
-                                                            </div>
-                                                            <p><?= $binhLuan['noi_dung'] ?></p>
-                                                        </div>
-                                                    </div>
-                                                <?php endforeach ?>
-                                                <form action="#" class="review-form">
-                                                    <div class="form-group row">
-                                                        <div class="col">
-                                                            <label class="col-form-label"><span class="text-danger">*</span>
-                                                                Nội dung bình luận</label>
-                                                            <textarea class="form-control" required></textarea>
-                                                        </div>
-                                                    </div>
+<?php foreach ($listBinhLuan as $binhLuan): ?>
+    <div class="total-reviews">
+        <div class="rev-avatar">
+            <img src="<?= $binhLuan['anh_dai_dien'] ?>" alt="avatar" />
+        </div>
+        <div class="review-box">
+            <div class="post-author">
+                <p><strong><?= $binhLuan['ho_ten'] ?? 'Khách hàng' ?></strong> - <?= $binhLuan['ngay_dang'] ?></p>
+            </div>
+            <p><?= $binhLuan['noi_dung'] ?></p>
+        </div>
+    </div>
+<?php endforeach; ?>
 
-                                                    <div class="buttons">
-                                                        <button class="btn btn-sqr" type="submit">Bình Luận</button>
-                                                    </div>
-                                                </form> <!-- end of review-form -->
-                                            </div>
+<div class="review-form mt-4">
+    <?php if (isset($_SESSION['tai_khoan'])): ?>
+        <form action="?act=them-binh-luan" method="POST" class="review-form">
+            <div class="form-group row">
+                <div class="col">
+                    <label class="col-form-label"><span class="text-danger">*</span>
+                        Nội dung bình luận</label>
+                    <textarea class="form-control" name="noi_dung" required></textarea>
+                    <input type="hidden" name="san_pham_id" value="<?= $sanPham['id'] ?>">
+                </div>
+            </div>
+            <div class="buttons mt-2">
+                <button class="btn btn-sqr" type="submit">Bình Luận</button>
+            </div>
+        </form>
+    <?php else: ?>
+        <p>Bạn cần <a href="?act=login">đăng nhập</a> để bình luận.</p>
+    <?php endif; ?>
+</div>
+</div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -141,6 +149,7 @@ require_once 'layout/menu.php';
                 </div>
             </div>
         </div>
+        
         <!-- page main wrapper end -->
 
         <!-- related products area start -->
