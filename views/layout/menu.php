@@ -26,6 +26,7 @@
                             <nav class="desktop-menu">
                                 <ul>
                                     <li><a href="<?= BASE_URL ?>">Trang chủ</a></li>
+
                                     <!-- Hiển thị danh mục -->
                                     <li><a href="#">Sản phẩm <i class="fa fa-angle-down"></i></a>
                                         <ul class="dropdown">
@@ -42,6 +43,7 @@
                                         </ul>
                                     </li>
                                     <!--  -->
+                                    
                                     <li><a href="#">Giới thiệu</a></li>
                                     <li><a href="#">Liên Hệ</a></li>
                                 </ul>
