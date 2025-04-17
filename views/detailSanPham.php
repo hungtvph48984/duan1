@@ -2,6 +2,7 @@
 require_once 'models/SanPham.php';
 $sanPhamModel = new SanPham();
 $listDanhMuc = $sanPhamModel-> getAllDanhMuc();
+
 require_once 'layout/header.php';
 ?>
 <?php
