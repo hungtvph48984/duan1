@@ -67,6 +67,7 @@
                                         <i class="pe-7s-user"></i>
                                     </a>
                                     <ul class="dropdown-list">
+
                                         <?php if (!isset($_SESSION['user_client'])): ?>
                                             <li><a href="<?= BASE_URL . '/?act=login' ?>">Đăng nhập</a></li>
                                             <li><a href="<?= BASE_URL . '?act=dangky' ?>">Đăng ký</a></li>
@@ -80,6 +81,7 @@
                                 <li>
                                     <a href="<?= BASE_URL . '?act=gio-hang' ?>" class="minicart-btn">
                                         <i class="pe-7s-shopbag"></i>
+
 
                                     </a>
                                 </li>

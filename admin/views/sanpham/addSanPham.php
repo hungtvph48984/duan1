@@ -134,9 +134,20 @@
                                     <textarea name="mo_ta" rows="3" class="form-control" id="" placeholder="nhập mô tả"></textarea>
                                 </div>
 
+                                <!--  Biến thể sản phẩm -->
+
+                                <div class="form-group col-12">
+                                    <label>Biến thể sản phẩm</label>
+                                    <div id="variantList"></div>
+                                    <button type="button" class="btn btn-info mt-2" onclick="addVariant()">Thêm biến thể</button>
+                                    <?php if (isset($_SESSION['error']['variants'])) { ?>
+                                        <p class="text-danger"><?= $_SESSION['error']['variants'] ?></p>
+                                    <?php } ?>
+                                </div>
+
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
                                 </div>
                         </form>
                     </div>
@@ -157,5 +168,52 @@
   </footer> -->
 
 </body>
+<script>
+    let variantCount = 0;
 
-</html>
+    function addVariant() {
+        variantCount++;
+        const variantList = document.getElementById('variantList');
+        const newVariant = document.createElement('div');
+        newVariant.className = 'row mb-2 variant-row';
+        newVariant.id = 'variant-' + variantCount;
+        newVariant.innerHTML = `
+        <div class="col-3">
+    <select class="form-control" name="sizes[]" required>
+        <option value="" disabled selected>Chọn size</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+    </select>
+</div>
+
+<div class="col-3">
+    <select class="form-control" name="colors[]" required>
+        <option value="" disabled selected>Chọn màu</option>
+        <option value="Đỏ">Đỏ</option>
+        <option value="Xanh">Xanh</option>
+        <option value="Vàng">Vàng</option>
+    </select>
+</div>
+
+<div class="col-3">
+    <input type="number" class="form-control" name="so_luong_variants[]" placeholder="Số lượng" required>
+</div>
+
+<div class="col-3">
+    <button type="button" class="btn btn-danger" onclick="removeVariant('variant-${variantCount}')">Xoá</button>
+</div>
+        `;
+        variantList.appendChild(newVariant);
+    }
+
+    function removeVariant(variantId) {
+        const variantRow = document.getElementById(variantId);
+        if (variantRow) {
+            variantRow.remove(); // Xoá hàng khỏi biến thể DOM
+        }
+    }
+</script>
+
+
+

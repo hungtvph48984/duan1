@@ -77,6 +77,7 @@ class GioHang
     }
    }
 
+
    public function clearDetailGioHang($gio_hang_id){
     try{
         $sql = "DELETE FROM chi_tiet_gio_hangs WHERE gio_hang_id = :gio_hang_id";
@@ -98,5 +99,5 @@ class GioHang
         echo "Lỗi" . $e->getMessage();                                         
     }
    }
-  
+
 }

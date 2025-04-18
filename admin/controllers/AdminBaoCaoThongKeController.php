@@ -6,8 +6,6 @@ class AdminBaoCaoThongKeController
 
     public function __construct()
     {
-       
-
         $this->modelDonHang = new AdminDonHang();
         $this->modelTaiKhoan = new AdminTaiKhoan();
     }

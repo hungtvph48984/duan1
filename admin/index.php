@@ -16,6 +16,7 @@ require_once './models/AdminDanhMuc.php';
 require_once './models/AdminSanPham.php';
 require_once './models/AdminDonHang.php';
 require_once './models/AdminTaiKhoan.php';
+
 // Route
 $act = $_GET['act'] ?? '/';
 if ($act !== 'login-admin' && $act !== 'check-login-admin' && $act !== 'logout-admin'){
@@ -25,8 +26,6 @@ if ($act !== 'login-admin' && $act !== 'check-login-admin' && $act !== 'logout-a
 match ($act) {
     // route báo cáo thống kê - trang chủ
     '/' => (new AdminBaoCaoThongKeController())->home(),
-
-
     'danh-muc' => (new AdminDanhMucController())->danhSachDanhMuc(),
     'form-them-danh-muc' => (new AdminDanhMucController())->formAddDanhMuc(),
     'them-danh-muc' => (new AdminDanhMucController())->postAddDanhMuc(),
@@ -45,8 +44,6 @@ match ($act) {
 
     //route bình luận
     // 'update-trang-thai-binh-luan' => (new AdminSanPhamController())->updateTrangThaiBinhLuan(),
-
-
      // route quản lý đơn hàng
      'don-hang' => (new AdminDonHangController())->danhSachDonHang(),
      'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
@@ -54,7 +51,14 @@ match ($act) {
      'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
 
     // rôute quản lý tài khoản
+        // quản lý tài khảon quản trị
+        'list-tai-khoan-quan-tri'=>(new AdminTaiKhoanController())->danhSachQuanTri(),   
+        'form-them-quan-tri'=>(new AdminTaiKhoanController())->formAddQuanTri(),   
+        'them-quan-tri'=>(new AdminTaiKhoanController())->postAddQuanTri(),   
 
+         // router  admin
+    'login-admin'         => (new AdminTaiKhoanController())->formLogin(),
+    'check-login-admin'   => (new AdminTaiKhoanController())->login(),
 
 
     // Router quản lý tài khoản cá nhân (quản trị)

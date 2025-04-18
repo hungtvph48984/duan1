@@ -4,17 +4,22 @@
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+
     <!-- Content Header (Page header) --> 
+
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
+
                     <h1>QUẢN LÝ TÀI KHOẢN QUẢN TRỊ VIÊN</h1>
+
                 </div>
 
             </div>
         </div><!-- /.container-fluid -->
     </section>
+
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -36,7 +41,7 @@
                                         <p class="text-danger"><?= $_SESSION['error']['ho_ten'] ?></p>
                                     <?php } ?>
                                 </div>
-                                <div class="form-group">
+                <div class="form-group">
                                     <label>Email</label>
                                     <input type="email" class="form-control" name="email" placeholder="nhập email">
                                     <?php
@@ -45,12 +50,14 @@
                                     <?php } ?>
                                 </div>         
                             </div>
+
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </form>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -60,6 +67,7 @@
     include './views/layout/footer.php';
     ?>
   </footer>
+
 
 </body>
 

@@ -23,7 +23,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <a href="<?= '?act=form-them-san-pham' ?>">
+                            <a href="<?= BASE_URL_ADMIN . '?act=form-them-san-pham' ?>">
                                 <button class="btn btn-success"> Thêm sản phẩm </button>
                             </a>
                         </div>
@@ -39,6 +39,7 @@
                                         <th>Số lượng</th>
                                         <th>Danh mục</th>
                                         <th>Trạng thái</th>
+                                        <th>Biến thể</th>
                                         <th>Thao tác</th>
                                     </tr>
                                 </thead>
@@ -55,9 +56,25 @@
                                             <td><?= $sanPham['ten_danh_muc'] ?></td>
                                             <td><?= $sanPham['trang_thai'] == 1 ? 'Còn hàng' : 'Dừng bán' ?></td>
                                             <td>
-                                                <a href="<?= '?act=chi-tiet-san-pham&id_san_pham=' . $sanPham['id'] ?>"><button class="btn btn-primary">Chi tiết</button></a>
-                                                <a href="<?= '?act=form-sua-san-pham&id_san_pham=' . $sanPham['id'] ?>"><button class="btn btn-warning">Sửa</button></a>
-                                                <a href="<?= '?act=xoa-san-pham&id_san_pham=' . $sanPham['id'] ?>" onclick="return confirm('bạn có đồng ý xóa không')"><button class="btn btn-danger">Xóa</button></a>
+                                                <!-- // Hiển thị biến thể sản phẩm -->
+                                            <td>
+                                                <?php if (!empty($sanPham['variants'])) : ?>
+                                                    <ul>
+                                                        <?php foreach ($sanPham['variants'] as $variant) : ?>
+                                                            <li>Size: <?= $variant['size'] ?>, Màu: <?= $variant['color'] ?>, Số lượng: <?= $variant['so_luong'] ?> </li>
+                                                        <?php endforeach; ?>
+                                                    </ul>
+                                                <?php else : ?>
+                                                    <p>Sản phẩm không có biến thể</p>
+                                                <?php endif; ?>
+                                            </td>
+                                            
+                                            <td>
+                                                <div class="btn-group">
+                                                    <a href="<?= '?act=chi-tiet-san-pham&id_san_pham=' . $sanPham['id'] ?>"><button class="btn btn-primary">Chi tiết</button></a>
+                                                    <a href="<?= '?act=form-sua-san-pham&id_san_pham=' . $sanPham['id'] ?>"><button class="btn btn-warning">Sửa</button></a>
+                                                    <a href="<?= '?act=xoa-san-pham&id_san_pham=' . $sanPham['id'] ?>" onclick="return confirm('bạn có đồng ý xóa không')"><button class="btn btn-danger">Xóa</button></a>
+                                                </div>
                                             </td>
                                         </tr>
                                     <?php endforeach ?>

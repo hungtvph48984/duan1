@@ -44,6 +44,7 @@ class TaiKhoan
             echo "Lỗi" . $e->getMessage();                                         
         }
     }
+
     public function checkDangKy($ho_ten,$email,$mat_khau)  {
         try{
             $sql = "SELECT * FROM tai_khoans WHERE email = :email";
@@ -72,4 +73,5 @@ class TaiKhoan
             return "đăng ký thất bại: " .$e->getMessage();
         }
     }
+
 }

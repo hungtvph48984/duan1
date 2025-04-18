@@ -100,7 +100,6 @@ require_once 'layout/menu.php';
                                     </ul>
                                     <div class="tab-content reviews-tab">
                                         <div class="tab-pane fade show active" id="tab_one">
-
                                         <div class="tab-pane fade show active" id="tab_three">
 
 <?php foreach ($listBinhLuan as $binhLuan): ?>

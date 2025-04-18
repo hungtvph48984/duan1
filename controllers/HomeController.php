@@ -5,6 +5,7 @@ class HomeController
   public $modelSanPham;
   public $modelTaiKhoan;
   public $modelGioHang;
+
   public $modelDonHang;
 
   public function __construct()
@@ -13,6 +14,7 @@ class HomeController
     $this->modelTaiKhoan = new TaiKhoan();
     $this->modelGioHang = new GioHang();
     $this->modelDonHang = new DonHang();
+
   }
   public function home()
   {
@@ -66,6 +68,7 @@ class HomeController
       }
     }
   }
+
   public function addGioHang()
   {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -78,6 +81,7 @@ class HomeController
 
         if (!$gioHang) {
           $gioHangId = $this->modelGioHang->addGioHang($email['id']);
+
           $gioHang = ['id' => $gioHangId];
           $chiTietGioHang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
         } else {
@@ -345,4 +349,5 @@ public function postDangKy(){
         }
     }
 }
+
 }

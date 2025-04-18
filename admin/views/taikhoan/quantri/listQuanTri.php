@@ -9,6 +9,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
+
           <h1>QUẢN LÝ TÀI KHOẢN QUẢN TRỊ VIÊN</h1>
         </div>
 
@@ -25,6 +26,7 @@
             <div class="card-header">
           <a href="<?=BASE_URL_ADMIN .'?act=form-them-quan-tri'?>">
             <button class="btn btn-success">Thêm Tài Khoản</button>
+
           </a>
             </div>
             <!-- /.card-header -->
@@ -34,6 +36,7 @@
                   <tr>
                     <th>STT</th>
                     <th>Họ tên</th>
+
                     <th>Email</th>
                     <th>Số điện thoại</th>
                     <th>Trạng thái</th>
@@ -46,6 +49,7 @@
                       <td><?= $quanTri['ho_ten'] ?></td>
                       <td><?= $quanTri['email'] ?></td>
                       <td><?= $quanTri['so_dien_thoai'] ?></td>
+
                       <td><?= $quanTri['trang_thai'] == 1 ? 'Active' : 'Inactive    ' ?></td>
                       <td>
                         <a href="<?=BASE_URL_ADMIN .'?act=form-sua-quan-tri&id_quan_tri='.$quanTri['id']?>">
@@ -68,6 +72,7 @@
                     <th>Trạng thái</th>
                     </tr>
                 </tfoot>
+
               </table>
             </div>
             <!-- /.card-body -->
@@ -108,6 +113,7 @@
     });
   });
 </script>
+
 <!-- Code injected by live-server -->
 </body>
 

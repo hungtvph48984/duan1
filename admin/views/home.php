@@ -1,9 +1,9 @@
+
 <?php
 // session_start();    
 require './views/layout/header.php';
 include './views/layout/navbar.php';
 include './views/layout/sidebar.php';
-
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">

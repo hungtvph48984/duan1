@@ -16,6 +16,7 @@ require_once 'views/layout/menu.php'; ?>
                                 <li class="breadcrumb-item active" aria-current="page">login-Register</li>
                             </ul>
                         </nav>
+
                     </div>
                 </div>
             </div>
@@ -153,7 +154,9 @@ require_once 'views/layout/menu.php'; ?>
             </div>
         </div>
     </div>
+
 </div>
 <!-- offcanvas mini cart end -->
+
 
 <?php require_once 'views/layout/footer.php'; ?>

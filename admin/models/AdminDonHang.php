@@ -80,7 +80,6 @@ class AdminDonHang
         }
     }
 
-
     public function updateDonHang($id, $ten_nguoi_nhan, $sdt_nguoi_nhan, $email_nguoi_nhan, $dia_chi_nguoi_nhan, $ghi_chu, $trang_thai_id) {
         try {
             // var_dump($id);die;
@@ -114,6 +113,9 @@ class AdminDonHang
         }
     }
 
+
+
+
     public function getDonHangFromKhachHang($id)
     {
         try {
@@ -123,6 +125,7 @@ class AdminDonHang
             ON don_hangs.trang_thai_id = trang_thai_don_hangs.id
             WHERE don_hangs.tai_khoan_id = :id
             ';
+
 
 
 
