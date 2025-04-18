@@ -122,7 +122,44 @@
     <script src="assets/js/plugins/google-map.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
-    
+
+    <!-- Thêm jQuery nếu chưa có trong header.php -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<script>
+$(document).ready(function() {
+    // Hàm định dạng giá tiền
+    function formatPrice(price) {
+        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
+    // Xử lý khi thay đổi số lượng
+    $('.quantity-input').on('input change', function() {
+        var $row = $(this).closest('tr');
+        var price = parseFloat($row.find('.pro-price span').text().replace(/\./g, '').replace('đ', ''));
+        var quantity = parseInt($(this).val());
+        var subtotal = price * quantity;
+        
+        // Cập nhật tổng tiền sản phẩm trong hàng
+        $row.find('.pro-subtotal span').text(formatPrice(subtotal) + '.đ');
+        
+        // Tính lại tổng giỏ hàng
+        var cartTotal = 0;
+        $('.pro-subtotal span').each(function() {
+            var value = parseFloat($(this).text().replace(/\./g, '').replace('đ', ''));
+            cartTotal += value;
+        });
+        
+        // Cập nhật tổng tiền
+        $('.cart-calculate-items .table tr:first td:last').text(formatPrice(cartTotal) + 'đ');
+        // Cập nhật tổng tiền thanh toán (bao gồm phí vận chuyển)
+        var totalWithShipping = cartTotal + 30000;
+        $('.total-amount').text(formatPrice(totalWithShipping) + 'đ');
+    });
+});
+</script>
+
 </body>
 
 

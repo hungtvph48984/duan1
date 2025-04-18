@@ -137,6 +137,15 @@
 
         <form action=" <?= BASE_URL_ADMIN . '?act=check-login-admin' ?>" method="post">
           
+
+        <?php if (isset($_SESSION['error'])) { ?>
+          <p class="text-danger login-box-msg"><?= $_SESSION['error'] ?></p>
+        <?php } else { ?>
+          <p class="login-box-msg">Vui lòng đăng nhập </p>
+        <?php } ?>
+        <form action=" <?= BASE_URL_ADMIN . '?act=check-login-admin' ?>" method="post">
+
+
           <div class="input-group mb-3">
             <input type="email" class="form-control" placeholder="Email" name="email">
             <div class="input-group-append">
@@ -144,6 +153,7 @@
                 <span class="fas fa-envelope"></span>
               </div>
             </div>  
+            </div>
           </div>
 
           <div class="input-group mb-3">

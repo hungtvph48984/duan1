@@ -87,7 +87,9 @@
                 <div class="col-sm-4 invoice-col">
                   <b>Mã đơn hàng: <?= $donHang['ma_don_hang']; ?></b><br>
                   <br>
+
                   <b>Tổng tiền:</b> <?= $donHang['tong_tien']; ?>J<br>
+                  <b>Tổng tiền:</b> <?= $donHang['tong_tien']; ?>.đ<br>
                   <b>Ghi chú:</b> <?= $donHang['ghi_chu']; ?><br>
                   <b>Phương thức:</b>  <?= $donHang['ten_phuong_thuc']; ?>
                 </div>
@@ -150,6 +152,11 @@
                       <tr>
                         <th>Tổng tiền:</th>
                         <td><?= $tong_tien + 200000 ?></td>
+                        <td>30000</td>
+                      </tr>
+                      <tr>
+                        <th>Tổng tiền:</th>
+                        <td><?= $tong_tien+30000?></td>
                       </tr>
                     </table>
                   </div>

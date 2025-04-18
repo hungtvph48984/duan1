@@ -9,7 +9,8 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>QUẢN LÝ Tài Khoản Quản Trị Viên</h1>
+
+          <h1>QUẢN LÝ TÀI KHOẢN QUẢN TRỊ VIÊN</h1>
         </div>
 
       </div>
@@ -24,7 +25,8 @@
           <div class="card">
             <div class="card-header">
           <a href="<?=BASE_URL_ADMIN .'?act=form-them-quan-tri'?>">
-            <button class="btn btn-success"> thêm tài khoản</button>
+            <button class="btn btn-success">Thêm Tài Khoản</button>
+
           </a>
             </div>
             <!-- /.card-header -->
@@ -34,12 +36,12 @@
                   <tr>
                     <th>STT</th>
                     <th>Họ tên</th>
-                    <th>Email </th>
-                    <th>Số điện thoại </th>
-                    <th>Trạng thái </th>
-                    <th>Thao tác</th>
+
+                    <th>Email</th>
+                    <th>Số điện thoại</th>
+                    <th>Trạng thái</th>
                   </tr>
-                </thead>
+                </thead>  
                 <tbody>
                   <?php foreach ($listQuanTri as $key => $quanTri): ?>
                     <tr>
@@ -47,13 +49,29 @@
                       <td><?= $quanTri['ho_ten'] ?></td>
                       <td><?= $quanTri['email'] ?></td>
                       <td><?= $quanTri['so_dien_thoai'] ?></td>
-                      <td><?= $quanTri['trang_thai' ]== 1 ? 'Active':'Inactive' ?></td>
+
+                      <td><?= $quanTri['trang_thai'] == 1 ? 'Active' : 'Inactive    ' ?></td>
                       <td>
-                        <a href="<?=BASE_URL_ADMIN .'?act=form-sua-quan-tri&id_quan_tri='.$quanTri['id']?>"><button class="btn btn-warning">Sửa</button></a>
+                        <a href="<?=BASE_URL_ADMIN .'?act=form-sua-quan-tri&id_quan_tri='.$quanTri['id']?>">
+                            <button class="btn btn-warning">Sửa</button>
+                        </a>  
                         
+                        <a href="<?=BASE_URL_ADMIN .'?act=reset-password&id_quan_tri='.$quanTri['id']?>"
+                         onclick="return confirm('Bạn có muốn reset password của tài khoản này không')">
+                         <button class="btn btn-danger">Reset</button></a> 
                       </td>
                     </tr>
-                  <?php endforeach ?>
+                  <?php endforeach ?>   
+                </tbody>
+                <tfoot>
+                    <tr>
+                    <th>STT</th>
+                    <th>Họ tên</th>
+                    <th>Email</th>
+                    <th>Số điện thoại</th>
+                    <th>Trạng thái</th>
+                    </tr>
+                </tfoot>
 
               </table>
             </div>
@@ -76,6 +94,25 @@
     ?>
   </footer> -->
 <!-- Page specific script -->
+<script>
+  $(function() {
+    $("#example1").DataTable({
+      "responsive": true,
+      "lengthChange": false,
+      "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
 
 <!-- Code injected by live-server -->
 </body>

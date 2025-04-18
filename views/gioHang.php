@@ -13,8 +13,7 @@ require_once 'layout/menu.php';
                     <div class="breadcrumb-wrap">
                         <nav aria-label="breadcrumb">
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="shop.html">shop</a></li>
+                                <li class="breadcrumb-item"><a href="<?= BASE_URL ?>"><i class="fa fa-home"></i></a></li>
                                 <li class="breadcrumb-item active" aria-current="page">giỏ hàng</li>
                             </ul>
                         </nav>
@@ -48,21 +47,18 @@ require_once 'layout/menu.php';
                                     <?php
                                     $tongGioHang = 0;
                                     foreach ($chiTietGioHang as $key => $sanPham): ?>
-
                                         <tr>
                                             <td class="pro-thumbnail"><img class="img-fluid" src="<?= BASE_URL . $sanPham->hinh_anh ?>" alt="product" /></td>
-
                                             <td class="pro-title"><a href="#"><?= $sanPham->ten_san_pham ?></a></td>
                                             <?php if ($sanPham->gia_khuyen_mai) { ?>
                                                 <td class="pro-price"><span><?= formatPrice($sanPham->gia_khuyen_mai) ?>.đ</span></td>
                                             <?php } else { ?>
                                                 <td class="pro-price"><span><?= formatPrice($sanPham->gia_san_pham) ?>.đ</span></td>
-
                                             <?php } ?>
-
-
                                             <td class="pro-quantity">
-                                                <div class="pro-qty"><input type="text" value="<?= $sanPham->so_luong ?>"></div>
+                                                <div class="pro-qty">
+                                                    <input type="number" class="quantity-input" value="<?= $sanPham->so_luong ?>" min="1">
+                                                </div>
                                             </td>
                                             <td class="pro-subtotal"><span>
                                                     <?php
@@ -85,7 +81,6 @@ require_once 'layout/menu.php';
                         <!-- Cart Update Option -->
                         <div class="cart-update-option d-block d-md-flex justify-content-between">
                             <div class="apply-coupon-wrapper">
-
                             </div>
                             <div class="cart-update">
                                 <a href="#" class="btn btn-sqr">Update Cart</a>
@@ -116,7 +111,7 @@ require_once 'layout/menu.php';
                                     </table>
                                 </div>
                             </div>
-                            <a href="checkout.html" class="btn btn-sqr d-block">Tiến hành thanh toán</a>
+                            <a href="<?= BASE_URL . '?act=thanh-toan' ?>" class="btn btn-sqr d-block">Tiến hành thanh toán</a>
                         </div>
                     </div>
                 </div>
