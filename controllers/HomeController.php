@@ -16,8 +16,18 @@ class HomeController
   }
   public function home()
   {
-    $listSanPham = $this->modelSanPham->getAllSanPham();
-    require_once './views/home.php';
+      $listSanPham = $this->modelSanPham->getAllSanPham();
+      // Thêm dòng này để lấy danh sách danh mục
+      $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
+      require_once './views/home.php';
+  }
+
+  public function listSanPhamDanhMuc()
+  {
+      $danh_muc_id = $_GET['danh_muc_id'] ?? 0;
+      $listSanPham = $this->modelSanPham->listSanPhamDanhMuc($danh_muc_id);
+      $listDanhMuc = $this->modelSanPham->getAllDanhMuc(); // Để hiển thị danh mục trong menu
+      require_once './views/home.php'; // Hoặc tạo file mới nếu cần giao diện riêng
   }
   public function chiTietSanPham()
   {
@@ -347,3 +357,4 @@ public function postDangKy(){
     }
 }
 }
+

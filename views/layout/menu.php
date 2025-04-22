@@ -28,7 +28,16 @@
                                     <li><a href="<?= BASE_URL ?>">Trang chủ</a></li>
                                     <li><a href="#">Sản phẩm <i class="fa fa-angle-down"></i></a>
                                         <ul class="dropdown">
-                                            <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
+                                            <?php if (isset($listDanhMuc) && !empty($listDanhMuc)): ?>
+                                                <?php foreach ($listDanhMuc as $danhMuc): ?>
+                                                    <li>
+                                                        <a href="<?= BASE_URL . '?act=danh-muc&danh_muc_id=' . $danhMuc['id']; ?>">
+                                                            <?= $danhMuc['ten_danh_muc'] ?>
+                                                        </a>
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            <?php else: ?>
+                                            <?php endif; ?>
                                         </ul>
                                     </li>
                                     <li><a href="#">Giới thiệu</a></li>

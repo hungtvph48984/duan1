@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 // Require file Common
 require_once '../commons/env.php'; // Khai báo biến môi trường
@@ -18,7 +18,7 @@ require_once './models/AdminDonHang.php';
 require_once './models/AdminTaiKhoan.php';
 // Route
 $act = $_GET['act'] ?? '/';
-if ($act !== 'login-admin' && $act !== 'check-login-admin' && $act !== 'logout-admin'){
+if ($act !== 'login-admin' && $act !== 'check-login-admin' && $act !== 'logout-admin') {
     checkLoginAdmin();
 }
 // Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
@@ -34,7 +34,7 @@ match ($act) {
     'sua-danh-muc' => (new AdminDanhMucController())->postEditDanhMuc(),
     'xoa-danh-muc' => (new AdminDanhMucController())->deleteDanhMuc(),
 
-       // route sản phẩm
+    // route sản phẩm
     'san-pham' => (new AdminSanPhamController())->danhSachSanPham(),
     'form-them-san-pham' => (new AdminSanPhamController())->formAddSanPham(),
     'them-san-pham' => (new AdminSanPhamController())->postAddSanPham(),
@@ -43,38 +43,37 @@ match ($act) {
     'xoa-san-pham' => (new AdminSanPhamController())->deleteSanPham(),
     'chi-tiet-san-pham' => (new AdminSanPhamController())->detailSanPham(),
 
-     // route quản lý đơn hàng
-     'don-hang' => (new AdminDonHangController())->danhSachDonHang(),
-     'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
-     'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
-     'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
+    // route quản lý đơn hàng
+    'don-hang' => (new AdminDonHangController())->danhSachDonHang(),
+    'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
+    'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
+    'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
 
     // rôute quản lý tài khoản
-        // quản lý tài khảon quản trị
-    'list-tai-khoan-quan-tri' =>(new AdminTaiKhoanController())->danhSachQuanTri(),
-    'form-them-quan-tri'      =>(new AdminTaiKhoanController())->formAddQuanTri(),
-    'them-quan-tri'           =>(new AdminTaiKhoanController())->postAddQuanTri(),
-    'form-sua-quan-tri'       =>(new AdminTaiKhoanController())->formEditQuanTri(),
-    'sua-quan-tri'            =>(new AdminTaiKhoanController())->postEditQuanTri(), 
-    
+    // quản lý tài khảon quản trị
+    'list-tai-khoan-quan-tri' => (new AdminTaiKhoanController())->danhSachQuanTri(),
+    'form-them-quan-tri'      => (new AdminTaiKhoanController())->formAddQuanTri(),
+    'them-quan-tri'           => (new AdminTaiKhoanController())->postAddQuanTri(),
+    'form-sua-quan-tri'       => (new AdminTaiKhoanController())->formEditQuanTri(),
+    'sua-quan-tri'            => (new AdminTaiKhoanController())->postEditQuanTri(),
+
     // quản lý tài khoản khách hàng
     'list-tai-khoan-khach-hang' => (new AdminTaiKhoanController())->danhSachKhachHang(),
     'form-sua-khach-hang'       => (new AdminTaiKhoanController())->formEditKhachHang(),
     'sua-khach-hang'            => (new AdminTaiKhoanController())->postEditKhachHang(),
-    'chi-tiet-khach-hang'       => (new AdminTaiKhoanController())->detailKhachHang(),
+    'chi-tiet-khach-hang'       => (new AdminTaiKhoanController())->deltailKhachHang(),
+
 
 
     // Router quản lý tài khoản cá nhân (quản trị)
     'form-sua-thong-tin-ca-nhan-quan-tri' => (new AdminTaiKhoanController())->formEditCaNhanQuanTri(),
     // 'sua-thong-tin-ca-nhan-quan-tri'      => (new AdminTaiKhoanController())->postEditCaNhanQuanTri(),
     'sua-mat-khau-ca-nhan-quan-tri'       => (new AdminTaiKhoanController())->postEditMatKhauCaNhan(),
-         // router  admin
+    // router  admin
     'login-admin'         => (new AdminTaiKhoanController())->formLogin(),
     'check-login-admin'   => (new AdminTaiKhoanController())->login(),
     'logout-admin'        => (new AdminTaiKhoanController())->logout(),
-
-    default => function() {
+    default => function () {
         echo "404 - Không tìm thấy trang";
     }
 };
-

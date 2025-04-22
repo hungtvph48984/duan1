@@ -34,39 +34,7 @@
                     <!-- edit form column -->
                     <div class="col-md-9 personal-info">
                     <form action="<?= BASE_URL_ADMIN . '?act=sua-thong-tin-ca-nhan-quan-tri'?>" method="post">
-                        <hr>
-                        <h3>Thông tin cá nhân</h3>
-
-                        <form class="form-horizontal" role="form">
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">Họ và Tên:</label>
-                                <div class="col-lg-12">
-                                    <input class="form-control" type="text" value="" name="">
-                                </div>
-                            </div>
-                            
-                            <!-- <div class="form-group">
-                                <label class="col-lg-3 control-label">Company:</label>
-                                <div class="col-lg-12">
-                                    <input class="form-control" type="text" value="">
-                                </div>
-                            </div> -->
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">Email:</label>
-                                <div class="col-lg-12">
-                                    <input class="form-control" type="text" value="">
-                                </div>
-                            </div>
-        
-
-                            <div class="form-group">
-                                <label class="col-md-3 control-label"></label>
-                                <div class="col-md-12">
-                                    <input type="submit" class="btn btn-primary" value="Save Changes">
-                                </div>
-                            </div>
-                        </form>
-                        <hr>
+                        
 
                         <h3>Đổi mật khẩu</h3>
 

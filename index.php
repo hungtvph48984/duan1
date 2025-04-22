@@ -15,23 +15,24 @@ require_once './models/DonHang.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
-// var_dump($act);
-// die();
+
+
 // if ($_GET['act']) {
 //     $act = $_GET['act'];
-// }else{
+// } else {
 //     $act = '/';
 // }
 
-// Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
+
 
 match ($act) {
+
 
     '/' => (new HomeController())->home(), //trường hợp đặc biệt
 
     // BASE_URL/?act=tên đường dẫn
+    'danh-muc' => (new HomeController())->listSanPhamDanhMuc(),
     'san-pham-tri-tiet' => (new HomeController())->chiTietSanPham(),
-    
     'them-gio-hang' => (new HomeController())->addGioHang(),
     'gio-hang' => (new HomeController())->gioHang(),
     'thanh-toan' => (new HomeController())->thanhToan(),
@@ -39,18 +40,13 @@ match ($act) {
     'lich-su-mua-hang' => (new HomeController())->lichSuMuaHang(),
     'chi-tiet-mua-hang' => (new HomeController())->chiTietMuaHang(),
     'huy-don-hang' => (new HomeController())->huyDonHang(),
-
-
-
     // form login trang chu
     'login'             => (new HomeController())->formLogin(),
     'check-login'       => (new HomeController())->postLogin(),
-    'dangky'            =>(new HomeController())->formDangKy(),
-    'check-dangky'      =>(new HomeController())->postDangKy(),
-
-
-
+    'dangky'            => (new HomeController())->formDangKy(),
+    'check-dangky'      => (new HomeController())->postDangKy(),
     default => function () {
+
         echo "404 - Không tìm thấy trang";
     }
 };

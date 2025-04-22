@@ -67,6 +67,14 @@ class AdminTaiKhoan
             return false;
         }
     }
+    public function logout()
+{
+    session_unset();        // Xóa toàn bộ session
+    session_destroy();      // Hủy phiên làm việc
+    header("Location: " . BASE_URL_ADMIN . "?act=login-admin");
+    exit;
+}
+
     
     public function getDetailTaiKhoan($id)
     {
@@ -195,4 +203,5 @@ class AdminTaiKhoan
     }
 }
     
+
 }

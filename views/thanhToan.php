@@ -43,7 +43,7 @@ require_once 'layout/menu.php';
                                     <input type="email" id="email_nguoi_nhan" name="email_nguoi_nhan" value="<?= $user['email'] ?>" placeholder="Địa chỉ Email" required />
                                 </div>
                                 <div class="single-input-item">
-                                    <label for="sdt_nguoi_nhan" class="required">Số điện thoại</label>
+                                    <label for="sdt_nguoi_nhan" class="required">Địa chỉ </label>
                                     <input type="text" id="sdt_nguoi_nhan" placeholder="Số điện thoại người nhận" name="sdt_nguoi_nhan" value="<?= $user['so_dien_thoai'] ?>" required />
                                 </div>
                                 <div class="single-input-item">

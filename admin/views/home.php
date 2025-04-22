@@ -13,7 +13,7 @@ include './views/layout/sidebar.php';
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>BÁO CÁO THỐNG KÊ</h1>
-                    <?php var_dump($_SESSION['user_admin']) ?>
+                   
 
                     <div class="row">
                         <div class="col-lg-4 col-md-6">
